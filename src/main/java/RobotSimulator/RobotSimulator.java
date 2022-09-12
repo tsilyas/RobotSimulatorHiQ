@@ -9,7 +9,9 @@ public class RobotSimulator {
 
     /**
      * Decoding the input.txt file.
-    */
+     * @param input
+     * @return
+     */
     public boolean decode(String input) {
         Cell robot = board.findRobot();
         if(robot == null){
@@ -49,7 +51,8 @@ public class RobotSimulator {
 
     /**
      * logic for commands "LEFT" and "RIGHT"
-    */
+     * @param dir
+     */
 
     private void directionCommand(String dir) {
         Cell robot = board.findRobot();
@@ -60,27 +63,40 @@ public class RobotSimulator {
             case NORTH:
                 if(dir.equals("RIGHT")){
                     robot.getRobot().setDirections(Directions.EAST);
-                } else robot.getRobot().setDirections(Directions.WEST);
+                } else if (dir.equals("LEFT")){
+                    robot.getRobot().setDirections(Directions.WEST);
+                }
                 break;
             case WEST:
                 if(dir.equals("RIGHT")){
                     robot.getRobot().setDirections(Directions.NORTH);
-                } else robot.getRobot().setDirections(Directions.SOUTH);
+                } else if (dir.equals("LEFT")){
+                    robot.getRobot().setDirections(Directions.SOUTH);
+                }
                 break;
             case SOUTH:
                 if(dir.equals("RIGHT")){
                     robot.getRobot().setDirections(Directions.WEST);
-                } else robot.getRobot().setDirections(Directions.EAST);
+                } else if (dir.equals("LEFT")){
+                    robot.getRobot().setDirections(Directions.EAST);
+                }
                 break;
             case EAST:
                 if(dir.equals("RIGHT")){
                     robot.getRobot().setDirections(Directions.SOUTH);
-                } else robot.getRobot().setDirections(Directions.NORTH);
+                } else if (dir.equals("LEFT")){
+                    robot.getRobot().setDirections(Directions.NORTH);
+                }
                 break;
             default:
         }
     }
 
+    /**
+     * Logic for "PLACE" command
+     * @param placeRobot
+     * @return
+     */
     public boolean placeCommand(Cell placeRobot) {
         if(placeRobot.getxPos() > 5 || placeRobot.getxPos() < 0 || placeRobot.getyPos() < 0 || placeRobot.getyPos() > 5){
             return false;

@@ -23,7 +23,6 @@ public class Board {
     }
 
     public void setRobotToBoard(Cell robot){
-        //Check if board is empty
         if(robot == null){
             return;
         }
@@ -39,6 +38,7 @@ public class Board {
             tmp[currxPos][curryPos] = new Cell(currxPos,curryPos,null);
         }
         tmp[xPos][yPos] = robot;
+        //Make changes in a temporary board to avoid multiple positions
         board = tmp;
     }
 
