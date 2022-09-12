@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="HiQRobotSimulator:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/HiQRobotSimulator_jar</output-path>
+    <root id="archive" name="HiQRobotSimulator.jar">
+      <element id="module-output" name="HiQRobotSimulator" />
+    </root>
+  </artifact>
+</component>
